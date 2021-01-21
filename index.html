@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>inseton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/grid.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e8f2de5d88.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 header">
+                    <h1 class="title">inseton.</h1>
+                    <div class="icons">
+                        <a href="https://open.spotify.com/artist/2KvgYSLgNlD83P4DiLuNnC?si=Ab3K0-gAQOK4BMLAnUFkyA" title="spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg" title="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/inseton.music/" title="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://soundcloud.com/inseton" title="soundcloud"><i class="fab fa-soundcloud"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/AUFOg4aGHqU" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2021 inseton. All rights reserved.</p> 
+    </main>
+    <footer> 
+        <div class="icons">
+            <a href="https://open.spotify.com/artist/2KvgYSLgNlD83P4DiLuNnC?si=Ab3K0-gAQOK4BMLAnUFkyA" title="spotify"><i class="fab fa-spotify"></i></a>
+            <a href="https://www.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg" title="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/inseton.music/" title="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://soundcloud.com/inseton" title="soundcloud"><i class="fab fa-soundcloud"></i></a>
+        </div>
+    </footer>
+    <div class="loading">
+        <img src="assets/img/thumb.png" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setTimeout(function(){
+                $('.loading').addClass('slide');
+                setTimeout(function(){
+                    $('.loading').hide();
+                }, 1000)
+            }, 3000)
+        });
+    </script>
+</body>
+
+</html>
