@@ -68,7 +68,10 @@ body {
     background: #333;
     margin: 0;
     background-image: url("../img/glitch.gif");
-    background-repeat: repeat-yx;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 main {
     padding-bottom: 75px;
