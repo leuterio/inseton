@@ -38,6 +38,12 @@
    "density": "4.0"
   },
   {
+   "src": "\/icon-large.png",
+   "sizes": "512x512",
+   "type": "image\/png",
+   "density": "4.0"
+  },
+  {
     "src": "\/maskable_icon.png",
     "sizes": "96x96",
     "type": "image\/png",
