@@ -17,41 +17,6 @@ window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
 });
 
-self.addEventListener('install', function(e) {
-    // e.waitUntil Delays the event until the Promise is resolved
-    e.waitUntil(
-
-    	// Open the cache
-	    caches.open(cacheName).then(function(cache) {
-
-	    	// Add all the default files to the cache
-			return cache.addAll(cacheFiles);
-	    })
-	); // end e.waitUntil
-});
-
-
-self.addEventListener('activate', function(e) {
-
-    e.waitUntil(
-
-    	// Get all the cache keys (cacheName)
-		caches.keys().then(function(cacheNames) {
-			return Promise.all(cacheNames.map(function(thisCacheName) {
-
-				// If a cached item is saved under a previous cacheName
-				if (thisCacheName !== cacheName) {
-
-					// Delete that cached file
-					return caches.delete(thisCacheName);
-				}
-			}));
-		})
-	); // end e.waitUntil
-
-});
-
-
 self.addEventListener('fetch', function(e) {
 
 	// e.respondWidth Responds to the fetch event
