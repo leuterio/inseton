@@ -1,43 +1,38 @@
-const divInstall = document.getElementById('installContainer');
-const butInstall = document.getElementById('butInstall');
-
-/* Put code here */
-window.addEventListener('beforeinstallprompt', (event) => {
-  console.log('👍', 'beforeinstallprompt', event);
-  // Stash the event so it can be triggered later.
-  window.deferredPrompt = event;
-  // Remove the 'hidden' class from the install button container
-  divInstall.classList.toggle('hidden', false);
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can add to home screen
+    btnAdd.style.display = 'block';
 });
 
-butInstall.addEventListener('click', async () => {
-  console.log('👍', 'butInstall-clicked');
-  const promptEvent = window.deferredPrompt;
-  if (!promptEvent) {
-    // The deferred prompt isn't available.
-    return;
-  }
-  // Show the install prompt.
-  promptEvent.prompt();
-  // Log the result
-  const result = await promptEvent.userChoice;
-  console.log('👍', 'userChoice', result);
-  // Reset the deferred prompt variable, since
-  // prompt() can only be called once.
-  window.deferredPrompt = null;
-  // Hide the install button.
-  divInstall.classList.toggle('hidden', true);
+btnAdd.addEventListener('click', (e) => {
+    // hide our user interface that shows our A2HS button
+    btnAdd.style.display = 'none';
+    // Show the prompt
+    deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    deferredPrompt.userChoice
+        .then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            } else {
+                console.log('User dismissed the A2HS prompt');
+            }
+            deferredPrompt = null;
+        });
 });
 
 window.addEventListener('appinstalled', (event) => {
-  console.log('👍', 'appinstalled', event);
-  // Clear the deferredPrompt so it can be garbage collected
-  window.deferredPrompt = null;
+    console.log('👍', 'appinstalled', event);
+    // Clear the deferredPrompt so it can be garbage collected
+    window.deferredPrompt = null;
 });
 
 /* Only register a service worker if it's supported */
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js');
+    navigator.serviceWorker.register('/service-worker.js');
 }
 
 /**
@@ -47,8 +42,8 @@ if ('serviceWorker' in navigator) {
  * if the page isn't served over HTTPS, the service worker won't load.
  */
 if (window.location.protocol === 'http:') {
-  const requireHTTPS = document.getElementById('requireHTTPS');
-  const link = requireHTTPS.querySelector('a');
-  link.href = window.location.href.replace('http://', 'https://');
-  requireHTTPS.classList.remove('hidden');
+    const requireHTTPS = document.getElementById('requireHTTPS');
+    const link = requireHTTPS.querySelector('a');
+    link.href = window.location.href.replace('http://', 'https://');
+    requireHTTPS.classList.remove('hidden');
 }
