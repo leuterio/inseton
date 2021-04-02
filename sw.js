@@ -1,74 +1,108 @@
-var CACHE_NAME = 'inseton.com-cache-v1';
-var urlsToCache = [
-    '/',
-    '/assets/css/grid.css',
-    '/assets/css/main.css',
-];
+// Set a name for the current cache
+var cacheName = 'v1'; 
 
-self.addEventListener('install', function (event) {
-    // Perform install steps
-    event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
-    );
+// Default files to always cache
+var cacheFiles = [
+	'/',
+	'index.html',
+	'/assets/css/grid.css',
+	'/assets/css/main.css',
+	'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,700&display=swap',
+    'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap',
+    'https://kit.fontawesome.com/e8f2de5d88.js'
+]
+
+
+self.addEventListener('install', function(e) {
+    console.log('[ServiceWorker] Installed');
+
+    // e.waitUntil Delays the event until the Promise is resolved
+    e.waitUntil(
+
+    	// Open the cache
+	    caches.open(cacheName).then(function(cache) {
+
+	    	// Add all the default files to the cache
+			console.log('[ServiceWorker] Caching cacheFiles');
+			return cache.addAll(cacheFiles);
+	    })
+	); // end e.waitUntil
 });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function (response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
 
-                // IMPORTANT: Clone the request. A request is a stream and
-                // can only be consumed once. Since we are consuming this
-                // once by cache and once by the browser for fetch, we need
-                // to clone the response.
-                var fetchRequest = event.request.clone();
+self.addEventListener('activate', function(e) {
+    console.log('[ServiceWorker] Activated');
 
-                return fetch(fetchRequest).then(
-                    function (response) {
-                        // Check if we received a valid response
-                        if (!response || response.status !== 200 || response.type !== 'basic') {
-                            return response;
-                        }
+    e.waitUntil(
 
-                        // IMPORTANT: Clone the response. A response is a stream
-                        // and because we want the browser to consume the response
-                        // as well as the cache consuming the response, we need
-                        // to clone it so we have two streams.
-                        var responseToCache = response.clone();
+    	// Get all the cache keys (cacheName)
+		caches.keys().then(function(cacheNames) {
+			return Promise.all(cacheNames.map(function(thisCacheName) {
 
-                        caches.open(CACHE_NAME)
-                            .then(function (cache) {
-                                cache.put(event.request, responseToCache);
-                            });
+				// If a cached item is saved under a previous cacheName
+				if (thisCacheName !== cacheName) {
 
-                        return response;
-                    }
-                );
-            })
-    );
+					// Delete that cached file
+					console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+					return caches.delete(thisCacheName);
+				}
+			}));
+		})
+	); // end e.waitUntil
+
 });
 
-self.addEventListener('activate', function (event) {
 
-    var cacheAllowlist = ['inseton.com-cache-v1'];
+self.addEventListener('fetch', function(e) {
+	console.log('[ServiceWorker] Fetch', e.request.url);
 
-    event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    if (cacheAllowlist.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        })
-    );
-})
+	// e.respondWidth Responds to the fetch event
+	e.respondWith(
+
+		// Check in cache for the request being made
+		caches.match(e.request)
+
+
+			.then(function(response) {
+
+				// If the request is in the cache
+				if ( response ) {
+					console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+					// Return the cached version
+					return response;
+				}
+
+				// If the request is NOT in the cache, fetch and cache
+
+				var requestClone = e.request.clone();
+				return fetch(requestClone)
+					.then(function(response) {
+
+						if ( !response ) {
+							console.log("[ServiceWorker] No response from fetch ")
+							return response;
+						}
+
+						var responseClone = response.clone();
+
+						//  Open the cache
+						caches.open(cacheName).then(function(cache) {
+
+							// Put the fetched response in the cache
+							cache.put(e.request, responseClone);
+							console.log('[ServiceWorker] New Data Cached', e.request.url);
+
+							// Return the response
+							return response;
+			
+				        }); // end caches.open
+
+					})
+					.catch(function(err) {
+						console.log('[ServiceWorker] Error Fetching & Caching New Data', err);
+					});
+
+
+			}) // end caches.match(e.request)
+	); // end e.respondWith
+});
