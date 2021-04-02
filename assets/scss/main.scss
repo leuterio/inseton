@@ -67,12 +67,8 @@
 body {
     background: #333;
     margin: 0;
-    //background-image: url("../img/glitch.gif");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: soft-light;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 main {
     padding-bottom: 75px;
@@ -248,12 +244,6 @@ footer {
 #videoBG {
     position: fixed;
     z-index: -1;
-    @media (min-aspect-ratio: 16/9) {
-        width: 100%;
-        height: auto;
-    }
-    @media (max-aspect-ratio: 16/9) {
-        width: auto;
-        height: 100%;
-    }
+    width: 100vh;
+    height: 100vh;
 }
