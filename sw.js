@@ -58,7 +58,7 @@ self.addEventListener('fetch', function (event) {
 
 self.addEventListener('activate', function (event) {
 
-    var cacheAllowlist = ['inseton.com-cache-v1', 'inseton.com-cache-v2'];
+    var cacheAllowlist = ['inseton.com-cache-v1'];
 
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
