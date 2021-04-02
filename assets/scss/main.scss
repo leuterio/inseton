@@ -64,9 +64,19 @@
         clip: rect(31px, 9999px, 149px, 0);
     }
 }
+html {
+    height: 100vh;
+    width: 100vw;
+}
 body {
     background: #333;
     margin: 0;
+    background-image: url("../img/glitch.gif");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: soft-light;
 }
 main {
     padding-bottom: 75px;
@@ -237,12 +247,4 @@ footer {
 
 .slide {
     animation: slide 1s;
-}
-
-#videoBG {
-    position: fixed;
-    z-index: -1;
-    width: 100vh;
-    height: 100vh;
-    filter: brightness(60%);
 }
