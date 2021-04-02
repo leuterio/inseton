@@ -12,6 +12,10 @@ var cacheFiles = [
     'https://kit.fontawesome.com/e8f2de5d88.js'
 ]
 
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+});
 
 self.addEventListener('install', function(e) {
     // e.waitUntil Delays the event until the Promise is resolved
