@@ -1,0 +1,232 @@
+:root {
+  --lime: #ceff1c;
+  --black: #080808;
+  --crt: "VT323", monospace;
+  --mono: "Share Tech Mono", monospace;
+  --code: "Fira Code", monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+body {
+  font-family: var(--mono);
+  color: var(--lime);
+  background: var(--black);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ─── Background ─────────────────────────────────────────── */
+.bg-photo {
+  position: fixed;
+  inset: 0;
+  background: url("../assets/img/banda/Foto_por_Pedro_Henrique_Faria-9.jpg") center / cover no-repeat;
+  z-index: -2;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.92);
+  z-index: -1;
+}
+
+/* ─── Scanlines ──────────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.07) 2px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.logo {
+  width: min(220px, 55vw);
+  filter: drop-shadow(0 0 24px rgba(206, 255, 28, 0.4));
+  animation: logo-glitch 7s infinite;
+}
+
+@keyframes logo-glitch {
+  0%, 80%, 100% {
+    filter: drop-shadow(0 0 24px rgba(206, 255, 28, 0.4));
+    transform: none;
+  }
+  81% {
+    transform: translateX(-5px) skewX(-3deg);
+    filter: drop-shadow(-3px 0 0 rgb(255,0,60)) drop-shadow(3px 0 0 rgb(0,255,255)) brightness(1.4);
+  }
+  82% {
+    transform: translateX(4px) skewX(2deg);
+    filter: drop-shadow(3px 0 0 rgb(255,0,60)) drop-shadow(-3px 0 0 rgb(0,255,255));
+  }
+  83% {
+    transform: none;
+    filter: drop-shadow(0 0 24px rgba(206, 255, 28, 0.4)) brightness(2);
+  }
+  84% {
+    transform: none;
+    filter: drop-shadow(0 0 24px rgba(206, 255, 28, 0.4));
+  }
+}
+
+.tagline {
+  font-size: 0.78rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  background: var(--black);
+  padding: 0.2em 0.7em;
+}
+
+/* ─── Sections ───────────────────────────────────────────── */
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.section-label {
+  font-family: var(--code);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: var(--black);
+  padding: 0.2em 0.6em;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+/* ─── Link buttons ───────────────────────────────────────── */
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(206, 255, 28, 0.2);
+  background: rgba(206, 255, 28, 0.04);
+  color: var(--lime);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--lime);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.link-btn:hover {
+  background: rgba(206, 255, 28, 0.1);
+  border-color: rgba(206, 255, 28, 0.55);
+  transform: translateX(4px);
+}
+
+.link-btn:hover::before { opacity: 1; }
+
+.link-btn:active { transform: translateX(2px) scale(0.99); }
+
+/* Highlight variant */
+.link-btn--highlight {
+  border-color: rgba(206, 255, 28, 0.45);
+  background: rgba(206, 255, 28, 0.08);
+}
+
+.link-btn--highlight:hover {
+  background: rgba(206, 255, 28, 0.16);
+  border-color: var(--lime);
+}
+
+.link-icon {
+  font-size: 1rem;
+  opacity: 0.7;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+}
+
+.link-text {
+  font-family: var(--code);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  flex: 1;
+}
+
+.link-handle {
+  font-size: 0.72rem;
+  opacity: 0.45;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.link-arrow {
+  font-size: 1rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.link-btn:hover .link-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  opacity: 0.3;
+}
+
+/* ─── Screen flicker ─────────────────────────────────────── */
+@keyframes screen-flicker {
+  0%, 76%, 78.5%, 81%, 100% { opacity: 1; }
+  77%   { opacity: 0.82; }
+  78%   { opacity: 0.92; }
+  79%   { opacity: 0.65; }
+  80%   { opacity: 1; }
+  80.5% { opacity: 0.88; }
+}
+
+body { animation: screen-flicker 9s infinite; }
