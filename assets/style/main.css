@@ -1017,6 +1017,14 @@ body.player-visible { padding-bottom: 82px; }
 
 .gp-vol-range { max-width: 90px; flex: none; width: 90px; }
 
+.gp-btn--close {
+  margin-left: 6px;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+}
+
+.gp-btn--close:hover { opacity: 1; }
+
 /* ─── Player mobile ──────────────────────────────────────── */
 @media (max-width: 768px) {
   .g-player {

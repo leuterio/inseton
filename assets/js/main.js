@@ -187,6 +187,16 @@ function togglePlay() {
 /* Controls */
 btnPlay.addEventListener("click", togglePlay);
 
+document.getElementById("gp-close").addEventListener("click", () => {
+  audio.pause();
+  audio.src = "";
+  currentIndex = -1;
+  setPlayIcon(false);
+  highlightCard(-1);
+  gpPlayer.setAttribute("hidden", "");
+  document.body.classList.remove("player-visible");
+});
+
 btnPrev.addEventListener("click", () => {
   if (audio.currentTime > 3) {
     audio.currentTime = 0;
@@ -399,6 +409,11 @@ class Insect {
     this.squashed = true;
     this.el.innerHTML = SPLAT_SVG;
     this.el.classList.add("squashed");
+    setTimeout(() => {
+      this.el.style.transition = "opacity 2s ease";
+      this.el.style.opacity = "0";
+      setTimeout(() => this.el.remove(), 2000);
+    }, 10000);
   }
 
   update() {
@@ -435,8 +450,14 @@ const insects = Array.from({ length: 7 }, () => new Insect());
 })();
 
 /* ─── CRT Glitch bars ────────────────────────────────────── */
+const isMobile = () => window.matchMedia("(max-width: 768px)").matches;
+
 function spawnGlitchBars() {
-  const count = Math.floor(Math.random() * 6) + 1;
+  if (isMobile() && Math.random() < 0.65) {
+    setTimeout(spawnGlitchBars, Math.random() * 6000 + 3000);
+    return;
+  }
+  const count = Math.floor(Math.random() * (isMobile() ? 3 : 6)) + 1;
   for (let i = 0; i < count; i++) {
     setTimeout(() => {
       const bar      = document.createElement("div");
@@ -468,7 +489,7 @@ function spawnGlitchBars() {
     }, 80);
   }
 
-  setTimeout(spawnGlitchBars, Math.random() * 3500 + 800);
+  setTimeout(spawnGlitchBars, Math.random() * (isMobile() ? 6000 : 3500) + (isMobile() ? 2000 : 800));
 }
 
 setTimeout(spawnGlitchBars, 1500);
