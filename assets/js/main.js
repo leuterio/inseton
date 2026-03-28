@@ -49,6 +49,15 @@ if (navToggle && navLinks) {
   });
 }
 
+/* ─── Skeleton loading ───────────────────────────────────── */
+document.querySelectorAll(".track-img, .foto img, .merch-face, .gp-cover").forEach((img) => {
+  if (img.complete && img.naturalWidth) {
+    img.classList.add("img-loaded");
+  } else {
+    img.addEventListener("load", () => img.classList.add("img-loaded"));
+  }
+});
+
 /* ─── Smooth scroll offset for fixed nav ────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -505,7 +514,8 @@ document.querySelectorAll(".merch-img-wrap[data-art]").forEach((wrap) => {
 /* ─── Foto Popup ─────────────────────────────────────────── */
 document.querySelectorAll(".foto").forEach((foto) => {
   foto.addEventListener("click", () => {
-    const img = foto.querySelector("img");
-    openPopup(img.src, "foto: Pedro Henrique Faria", "");
+    const img  = foto.querySelector("img");
+    const full = img.dataset.full || img.src;
+    openPopup(full, "foto: Pedro Henrique Faria", "");
   });
 });

@@ -1042,6 +1042,33 @@ body.player-visible { padding-bottom: 82px; }
   body.player-visible { padding-bottom: 130px; }
 }
 
+/* ─── Skeleton loading ───────────────────────────────────── */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position:  800px 0; }
+}
+
+.track-img,
+.foto img,
+.merch-face,
+.gp-cover {
+  background: linear-gradient(90deg,
+    rgba(206, 255, 28, 0.04) 25%,
+    rgba(206, 255, 28, 0.12) 50%,
+    rgba(206, 255, 28, 0.04) 75%
+  );
+  background-size: 1600px 100%;
+  animation: skeleton-shimmer 1.6s infinite linear;
+}
+
+.track-img.img-loaded,
+.foto img.img-loaded,
+.merch-face.img-loaded,
+.gp-cover.img-loaded {
+  background: none;
+  animation: none;
+}
+
 /* ─── CRT / Glitch ───────────────────────────────────────── */
 
 /* Scanlines */
@@ -1169,7 +1196,7 @@ body { animation: screen-flicker 9s infinite; }
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9990;
+  z-index: 10000;
   pointer-events: none;
   will-change: transform;
   transform-origin: left center;
