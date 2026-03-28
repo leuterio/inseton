@@ -1,56 +1,427 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
-    <meta name="description"  content="inseton site oficial">
+    <meta name="description" content="inseton — rock alternativo · vitória · ES">
     <title>inseton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Fira+Code:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style/main.css">
 </head>
 
-<body class="">
-    <div class="container on">
-      <div class="screen">
-        <div class="header">
-            <img class="glitch" src="assets/img/icons/logo_white_inseton.png" alt="inseton logo">
+<body>
+    <div class="bg-photo"></div>
+    <div id="bg-overlay"></div>
+
+    <nav id="navbar">
+        <a href="#hero" class="nav-brand">
+            <img src="assets/img/icons/logo_white_inseton.png" alt="inseton" class="nav-logo">
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#bio">BIO</a></li>
+            <li><a href="#musica">MUSICA</a></li>
+            <li><a href="#clipes">CLIPES</a></li>
+            <li><a href="#fotos">FOTOS</a></li>
+            <li><a href="#merch">MERCH</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-inner">
+            <img src="assets/img/icons/logo_white_inseton.png" alt="inseton" class="hero-logo">
+            <a href="#bio" class="hero-scroll">↓</a>
         </div>
-        <div class="box--outer">
-          <div class="box">
-            <div class="box--inner">
-              <div class="content">
-                <div class="holder">
-                  <iframe width="640" height="360" src="https://www.youtube.com/embed/eQpmO40JjnM?si=PGmiK6VBX08qaK_5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  <div class="social-links">
-                      <a href="https://music.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg">
-                        <img src="assets/img/social/youtube-music-logo.png" alt="youtube music">
-                      </a>
-                      <a href="https://open.spotify.com/artist/2KvgYSLgNlD83P4DiLuNnC">
-                        <img src="assets/img/social/spotify-logo.png" alt="spotify">
-                      </a>
-                      <a href="https://www.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg">
-                        <img class="youtube" src="assets/img/social/youtube-logo.png" alt="youtube">
-                      </a> 
-                      <a href="https://www.instagram.com/inset0n">
-                        <img src="assets/img/social/instagram-logo.png" alt="instagram">
-                      </a>
-                      <a href="https://www.tiktok.com/@inseton">
-                        <img src="assets/img/social/tiktok-logo.png" alt="instagram">
-                      </a>
-                      <a href="https://soundcloud.com/inseton">
-                        <img src="assets/img/social/soundcloud-logo.png" alt="soundcloud">
-                      </a>
-                  </div>
-                </div>
-              </div>
+    </section>
+
+    <!-- BIO -->
+    <section id="bio" class="section">
+        <div class="section-wrap">
+            <h2 class="section-title">BIO</h2>
+            <div class="bio-text">
+                <p>Formada em 2020 em Vitória, Espírito Santo, a Inseton é uma banda brasileira de rock alternativo que se destaca por seu som experimental e por suas letras delicadas e provocativas. Suas músicas, gravadas de forma independente no home studio da banda, exploram temas que questionam a sociedade atual, dando voz a anseios e sentimentos frequentemente ignorados e que, por isso, tornam-se ainda mais difíceis de lidar.</p>
+                <p>A banda foi fundada pelo músico e produtor Jeff Chicão (voz e guitarras) e, em 2022, ampliou sua formação com a entrada de Danilo Galdino (voz e guitarras), Lucas Roncheti (bateria e samples) e Pedro Moscardi (baixo e sintetizadores). O grupo lançou seu primeiro EP, <em>Monstros Reais</em>, em 2020, e 3 singles — <em>Agora</em> (2023), <em>Pr3ç0</em> (2024) e <em>Filtro</em> (2025) — 4 videoclipes e já participou de programas como TVE Revista, Solta o Som, Santo de Casa da rádio Rocket e Happy Hour da rádio Jovem Pan Vitória.</p>
+                <p>A inseton permanece firme na resistência do cenário do rock alternativo capixaba através do seu compromisso com a inovação e a autenticidade, tanto nas produções musicais quanto audiovisuais. A banda, no momento, está focada em finalizar seu novo disco, produzir videoclipes e aumentar a visibilidade com shows e participações em novos programas e festivais.</p>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
+
+    <!-- MUSICA -->
+    <section id="musica" class="section">
+        <div class="section-wrap">
+            <h2 class="section-title">MUSICA</h2>
+
+            <div class="music-block">
+                <h3 class="music-cat">SINGLES</h3>
+                <div class="tracks-list">
+                    <div class="track-item" data-index="0"
+                        data-src="assets/music/Singles/Filtro - 2025/Filtro.wav"
+                        data-cover="assets/music/Singles/Filtro - 2025/CAPA SINGLE FILTRO 3000x3000.png"
+                        data-title="Filtro" data-year="2025">
+                        <img class="track-img" src="assets/music/Singles/Filtro - 2025/CAPA SINGLE FILTRO 3000x3000.png" alt="Filtro" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">Filtro</p>
+                            <p class="track-year">2025</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="1"
+                        data-src="assets/music/Singles/pr3ç0 - 2024/pr3ç0.wav"
+                        data-cover="assets/music/Singles/pr3ç0 - 2024/PR3Ç0_3000.jpg"
+                        data-title="pr3ç0" data-year="2024">
+                        <img class="track-img" src="assets/music/Singles/pr3ç0 - 2024/PR3Ç0_3000.jpg" alt="pr3ç0" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">pr3ç0</p>
+                            <p class="track-year">2024</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="2"
+                        data-src="assets/music/Singles/Agora feat. Kael STN - 2023/Agora (feat. Kael Santana).wav"
+                        data-cover="assets/music/Singles/Agora feat. Kael STN - 2023/Agora.png"
+                        data-title="Agora (feat. Kael STN)" data-year="2023">
+                        <img class="track-img" src="assets/music/Singles/Agora feat. Kael STN - 2023/Agora.png" alt="Agora" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">Agora (feat. Kael STN)</p>
+                            <p class="track-year">2023</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-block">
+                <h3 class="music-cat">MONSTROS REAIS — EP — 2022</h3>
+                <div class="tracks-list">
+                    <div class="track-item" data-index="3"
+                        data-src="assets/music/Albuns/Montros Reais - EP - 2022/01 - Agora.wav"
+                        data-cover="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg"
+                        data-title="Agora" data-year="2022">
+                        <img class="track-img" src="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg" alt="Agora" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">01 — Agora</p>
+                            <p class="track-year">2022</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="4"
+                        data-src="assets/music/Albuns/Montros Reais - EP - 2022/02 - Cometa.wav"
+                        data-cover="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg"
+                        data-title="Cometa" data-year="2022">
+                        <img class="track-img" src="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg" alt="Cometa" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">02 — Cometa</p>
+                            <p class="track-year">2022</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="5"
+                        data-src="assets/music/Albuns/Montros Reais - EP - 2022/03 - Enchente.wav"
+                        data-cover="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg"
+                        data-title="Enchente" data-year="2022">
+                        <img class="track-img" src="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg" alt="Enchente" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">03 — Enchente</p>
+                            <p class="track-year">2022</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="6"
+                        data-src="assets/music/Albuns/Montros Reais - EP - 2022/04 - Bug.wav"
+                        data-cover="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg"
+                        data-title="Bug" data-year="2022">
+                        <img class="track-img" src="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg" alt="Bug" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">04 — Bug</p>
+                            <p class="track-year">2022</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                    <div class="track-item" data-index="7"
+                        data-src="assets/music/Albuns/Montros Reais - EP - 2022/05 - Soledad.wav"
+                        data-cover="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg"
+                        data-title="Soledad" data-year="2022">
+                        <img class="track-img" src="assets/music/Albuns/Montros Reais - EP - 2022/Monstros Reais.jpg" alt="Soledad" loading="lazy">
+                        <div class="track-info">
+                            <p class="track-name">05 — Soledad</p>
+                            <p class="track-year">2022</p>
+                        </div>
+                        <button class="track-play-btn" aria-label="Play/Pause">
+                            <svg class="ti-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                            <svg class="ti-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="music-block">
+                <h3 class="music-cat">TAMBÉM DISPONÍVEL EM</h3>
+                <div class="stream-links">
+                    <a href="https://open.spotify.com/artist/2KvgYSLgNlD83P4DiLuNnC" target="_blank" rel="noopener" title="Spotify">
+                        <img src="assets/img/social/spotify-logo.png" alt="spotify">
+                    </a>
+                    <a href="https://music.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg" target="_blank" rel="noopener" title="YouTube Music">
+                        <img src="assets/img/social/youtube-music-logo.png" alt="youtube music">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg" target="_blank" rel="noopener" title="YouTube">
+                        <img src="assets/img/social/youtube-logo.png" alt="youtube" class="yt">
+                    </a>
+                    <a href="https://soundcloud.com/inseton" target="_blank" rel="noopener" title="SoundCloud">
+                        <img src="assets/img/social/soundcloud-logo.png" alt="soundcloud">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIPES -->
+    <section id="clipes" class="section">
+        <div class="section-wrap">
+            <h2 class="section-title">CLIPES</h2>
+            <div class="clipes-grid">
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/eQpmO40JjnM"
+                            title="Filtro — inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">Filtro — 2025</p>
+                </div>
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/dlvuH5_rWC8"
+                            title="inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">pr3ç0 - 2024</p>
+                </div>
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/eAJosyHPB4g"
+                            title="inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">Agora feat. Kael STN - 2023</p>
+                </div>
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/z5qxBU5p6Qs"
+                            title="inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">Soledad - 2022</p>
+                </div>
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/abo3f9wt0Gc"
+                            title="inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">Enchente - 2022</p>
+                </div>
+                <div class="clipe">
+                    <div class="clipe-video">
+                        <iframe src="https://www.youtube.com/embed/AUFOg4aGHqU"
+                            title="inseton" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <p class="clipe-label">Cometa - 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOTOS -->
+    <section id="fotos" class="section">
+        <div class="section-wrap">
+            <h2 class="section-title">FOTOS</h2>
+            <p class="foto-credit">fotos: Pedro Henrique Faria</p>
+            <div class="fotos-grid">
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-1.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-2.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-3.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-4.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-5.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-6pb.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-7.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-8.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-9.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-10.jpg" alt="inseton" loading="lazy"></div>
+                <div class="foto"><img src="assets/img/banda/Foto_por_Pedro_Henrique_Faria-11.jpg" alt="inseton" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MERCH -->
+    <section id="merch" class="section section--lime">
+        <div class="section-wrap">
+            <h2 class="section-title">MERCH</h2>
+            <div class="merch-grid">
+                <div class="merch-item">
+                    <div class="merch-img-wrap">
+                        <div class="merch-placeholder">
+                            <img src="assets/img/icons/inseton-symbol.svg" alt="inseton" class="merch-symbol">
+                        </div>
+                        <span class="esgotado">ESGOTADO</span>
+                    </div>
+                    <p class="merch-name">Camiseta Inseton</p>
+                    <p class="merch-price">R$ —</p>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-img-wrap">
+                        <div class="merch-placeholder">
+                            <img src="assets/img/icons/inseton-symbol.svg" alt="inseton" class="merch-symbol">
+                        </div>
+                        <span class="esgotado">ESGOTADO</span>
+                    </div>
+                    <p class="merch-name">Moletom Inseton</p>
+                    <p class="merch-price">R$ —</p>
+                </div>
+                <div class="merch-item">
+                    <div class="merch-img-wrap">
+                        <div class="merch-placeholder">
+                            <img src="assets/img/icons/inseton-symbol.svg" alt="inseton" class="merch-symbol">
+                        </div>
+                        <span class="esgotado">ESGOTADO</span>
+                    </div>
+                    <p class="merch-name">Boné Inseton</p>
+                    <p class="merch-price">R$ —</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section section--lime">
+        <div class="section-wrap">
+            <h2 class="section-title">CONTATO</h2>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <div class="contato-item">
+                        <span class="contato-label">EMAIL</span>
+                        <a href="mailto:inseton.music@gmail.com">inseton.music@gmail.com</a>
+                    </div>
+                    <div class="contato-item">
+                        <span class="contato-label">TELEFONE</span>
+                        <a href="tel:+5527999085783">(27) 9 9908-5783</a>
+                    </div>
+                    <div class="contato-item">
+                        <span class="contato-label">REDES</span>
+                        <div class="contato-redes">
+                            <a href="https://www.instagram.com/inset0n" target="_blank" rel="noopener">Instagram</a>
+                            <a href="https://www.tiktok.com/@inseton" target="_blank" rel="noopener">TikTok</a>
+                            <a href="https://open.spotify.com/artist/2KvgYSLgNlD83P4DiLuNnC" target="_blank" rel="noopener">Spotify</a>
+                            <a href="https://www.youtube.com/channel/UCjLyscx6wOhcBbo-yVW4GPg" target="_blank" rel="noopener">YouTube</a>
+                            <a href="https://soundcloud.com/inseton" target="_blank" rel="noopener">SoundCloud</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="contato-form" action="mailto:inseton.music@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <input type="text" name="nome" placeholder="NOME" required autocomplete="name">
+                    </div>
+                    <div class="form-row">
+                        <input type="email" name="email" placeholder="EMAIL" required autocomplete="email">
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="assunto" placeholder="ASSUNTO">
+                    </div>
+                    <div class="form-row">
+                        <textarea name="mensagem" placeholder="MENSAGEM" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">ENVIAR ↗</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 inseton · todos os direitos reservados</p>
+    </footer>
+
+    <!-- Cover Popup -->
+    <div id="cover-popup" class="cover-popup" hidden>
+        <div class="cover-popup-bg" id="popup-bg"></div>
+        <div class="cover-popup-box">
+            <button class="cover-popup-close" id="popup-close" aria-label="Fechar">&#10005;</button>
+            <img id="popup-img" src="" alt="">
+            <p id="popup-caption" class="cover-popup-caption"></p>
+        </div>
     </div>
-  
-  </body>
+
+    <!-- Global Player -->
+    <div id="global-player" class="g-player" hidden>
+        <audio id="audio-engine" preload="none"></audio>
+        <div class="gp-track">
+            <img id="gp-cover" class="gp-cover" src="" alt="">
+            <div class="gp-meta">
+                <p id="gp-title" class="gp-title">—</p>
+                <p class="gp-artist">inseton</p>
+            </div>
+        </div>
+        <div class="gp-main">
+            <div class="gp-controls">
+                <button class="gp-btn" id="gp-prev" title="Anterior">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+                </button>
+                <button class="gp-btn gp-btn--play" id="gp-play" title="Play/Pause">
+                    <svg id="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg id="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="gp-btn" id="gp-next" title="Próxima">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2.5-6 8.5 6V6z" style="display:none"/><path d="M16 6h-2v12h2V6zM6 6v12l8.5-6z"/></svg>
+                </button>
+            </div>
+            <div class="gp-progress-row">
+                <span id="gp-cur" class="gp-time">0:00</span>
+                <input type="range" id="gp-seek" class="gp-range" min="0" max="100" value="0" step="0.1">
+                <span id="gp-dur" class="gp-time">0:00</span>
+            </div>
+        </div>
+        <div class="gp-vol-area">
+            <svg class="gp-vol-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            <input type="range" id="gp-vol" class="gp-range gp-vol-range" min="0" max="1" value="0.8" step="0.01">
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
 
 </html>
