@@ -1122,9 +1122,26 @@ body { animation: screen-flicker 9s infinite; }
   filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
   display: block;
   animation: insect-walk var(--walk-dur, 0.3s) linear infinite;
+  pointer-events: auto;
+  cursor: crosshair;
 }
 
 @keyframes insect-walk {
-  0%, 100% { transform: translateY(0);     }
-  50%       { transform: translateY(-2px);  }
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-2px); }
+}
+
+/* Squashed state */
+.insect.squashed svg {
+  overflow: visible;
+  animation: splat-appear 0.22s ease-out forwards !important;
+  pointer-events: none;
+  cursor: default;
+  filter: none;
+}
+
+@keyframes splat-appear {
+  0%   { transform: scale(0.2); opacity: 0; }
+  55%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
 }

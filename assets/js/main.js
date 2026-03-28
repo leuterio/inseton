@@ -307,6 +307,40 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* ─── Insects ────────────────────────────────────────────── */
+const SPLAT_SVG = `<svg viewBox="0 0 56 24" xmlns="http://www.w3.org/2000/svg"
+  fill="none" stroke-linecap="round" stroke-linejoin="round" overflow="visible">
+  <!-- poça de sangue -->
+  <ellipse cx="28" cy="12" rx="22" ry="13" fill="#8b0000" opacity="0.9"/>
+  <!-- respingos -->
+  <circle cx="54"  cy="-13" r="4.5" fill="#aa0000"/>
+  <circle cx="-9"  cy="-9"  r="3"   fill="#aa0000"/>
+  <circle cx="66"  cy="31"  r="5.5" fill="#990000"/>
+  <circle cx="-13" cy="29"  r="4"   fill="#aa0000"/>
+  <circle cx="29"  cy="-19" r="3"   fill="#cc0000"/>
+  <circle cx="71"  cy="6"   r="3.5" fill="#bb0000"/>
+  <circle cx="-4"  cy="40"  r="4"   fill="#aa0000"/>
+  <circle cx="51"  cy="-20" r="2.5" fill="#dd0000"/>
+  <circle cx="-19" cy="13"  r="2"   fill="#cc0000"/>
+  <circle cx="73"  cy="19"  r="2.5" fill="#cc0000"/>
+  <circle cx="40"  cy="-24" r="2"   fill="#dd0000"/>
+  <!-- cabeça desmembrada (canto superior esquerdo) -->
+  <circle cx="-13" cy="-15" r="4.5" fill="#111"/>
+  <line x1="-11" y1="-18" x2="-7"  y2="-24" stroke="#111" stroke-width="1"/>
+  <line x1="-14" y1="-19" x2="-19" y2="-25" stroke="#111" stroke-width="1"/>
+  <!-- tórax desmembrado (canto superior direito) -->
+  <circle cx="62" cy="-11" r="4" fill="#111"/>
+  <!-- abdome desmembrado (canto inferior direito, rotacionado) -->
+  <ellipse cx="69" cy="35" rx="10" ry="6" fill="#111"
+    transform="rotate(-40 69 35)"/>
+  <!-- patas espalhadas (6) -->
+  <line x1="7"   y1="-11" x2="-4"  y2="-22" stroke="#111" stroke-width="1.5"/>
+  <line x1="19"  y1="-15" x2="13"  y2="-26" stroke="#111" stroke-width="1.5"/>
+  <line x1="56"  y1="39"  x2="65"  y2="48"  stroke="#111" stroke-width="1.5"/>
+  <line x1="-9"  y1="33"  x2="-18" y2="42"  stroke="#111" stroke-width="1.5"/>
+  <line x1="72"  y1="-3"  x2="80"  y2="-12" stroke="#111" stroke-width="1.5"/>
+  <line x1="-16" y1="21"  x2="-26" y2="28"  stroke="#111" stroke-width="1.5"/>
+</svg>`;
+
 const ANT_SVG = `<svg viewBox="0 0 56 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
   stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
   <!-- abdomen -->
@@ -351,10 +385,25 @@ class Insect {
     this.el.querySelector("svg").style.animationDelay =
       `-${(Math.random() * parseFloat(dur)).toFixed(2)}s`;
 
+    this.squashed = false;
+    const svgEl = this.el.querySelector("svg");
+    const doSquash = (e) => { e.stopPropagation(); this.squash(); };
+    svgEl.addEventListener("click",      doSquash);
+    svgEl.addEventListener("touchstart", doSquash, { passive: false });
+
     document.body.appendChild(this.el);
   }
 
+  squash() {
+    if (this.squashed) return;
+    this.squashed = true;
+    this.el.innerHTML = SPLAT_SVG;
+    this.el.classList.add("squashed");
+  }
+
   update() {
+    if (this.squashed) return;
+
     this.stepTimer--;
     if (this.stepTimer <= 0) {
       this.turnAccel = (Math.random() - 0.5) * 0.12;
