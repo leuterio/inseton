@@ -473,6 +473,14 @@ function spawnGlitchBars() {
 
 setTimeout(spawnGlitchBars, 1500);
 
+/* ─── Merch art popup ────────────────────────────────────── */
+document.querySelectorAll(".merch-img-wrap[data-art]").forEach((wrap) => {
+  wrap.style.cursor = "pointer";
+  wrap.addEventListener("click", () => {
+    openPopup(wrap.dataset.art, wrap.dataset.label, "");
+  });
+});
+
 /* ─── Foto Popup ─────────────────────────────────────────── */
 document.querySelectorAll(".foto").forEach((foto) => {
   foto.addEventListener("click", () => {

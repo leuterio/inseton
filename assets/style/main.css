@@ -311,8 +311,9 @@ body {
 
 .merch-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 2.5rem;
+  max-width: 960px;
 }
 
 .merch-item {
@@ -322,28 +323,51 @@ body {
 .merch-img-wrap {
   position: relative;
   margin-bottom: 1rem;
-}
-
-.merch-placeholder {
   width: 100%;
   aspect-ratio: 1;
-  background: rgba(8, 8, 8, 0.08);
-  border: 2px dashed rgba(8, 8, 8, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.merch-symbol {
-  width: 60px;
-  opacity: 0.2;
-  filter: invert(1);
+.merch-face {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flip card */
+.merch-flip {
+  perspective: 800px;
+}
+
+.merch-flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s ease;
+}
+
+.merch-flip:hover .merch-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.merch-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.merch-back {
+  transform: rotateY(180deg);
 }
 
 .esgotado {
   position: absolute;
   top: 12px;
   right: 12px;
+  z-index: 10;
   background: #0a0a0a;
   color: var(--lime);
   font-family: var(--code);
@@ -351,6 +375,28 @@ body {
   font-weight: 700;
   letter-spacing: 0.2em;
   padding: 4px 10px;
+  pointer-events: none;
+}
+
+.merch-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(8, 8, 8, 0.75);
+  color: var(--lime);
+  font-family: var(--code);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 4px 10px;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.merch-flip:hover .merch-hint {
+  opacity: 0;
 }
 
 .merch-name {
@@ -363,8 +409,9 @@ body {
 }
 
 .merch-price {
-  font-size: 0.85rem;
-  opacity: 0.5;
+  font-size: 0.95rem;
+  font-family: var(--code);
+  font-weight: 700;
   color: var(--black);
 }
 
@@ -537,7 +584,7 @@ footer {
   }
 
   .merch-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 
