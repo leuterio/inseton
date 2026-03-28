@@ -419,7 +419,9 @@
                         </div>
                     </div>
                 </div>
-                <form class="contato-form" action="mailto:inseton.music@gmail.com" method="post" enctype="text/plain">
+                <form class="contato-form" action="https://formsubmit.co/inseton.music@gmail.com" method="POST">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-row">
                         <input type="text" name="nome" placeholder="NOME" required autocomplete="name">
                     </div>
@@ -427,7 +429,7 @@
                         <input type="email" name="email" placeholder="EMAIL" required autocomplete="email">
                     </div>
                     <div class="form-row">
-                        <input type="text" name="assunto" placeholder="ASSUNTO">
+                        <input type="text" name="_subject" placeholder="ASSUNTO">
                     </div>
                     <div class="form-row">
                         <textarea name="mensagem" placeholder="MENSAGEM" rows="5" required></textarea>
