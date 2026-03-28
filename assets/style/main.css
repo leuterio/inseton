@@ -7,6 +7,7 @@
   --nav-h: 70px;
   --mono: "Share Tech Mono", monospace;
   --code: "Fira Code", monospace;
+  --crt: "VT323", monospace;
 }
 
 /* ─── Reset ──────────────────────────────────────────────── */
@@ -164,14 +165,18 @@ body {
 }
 
 .section-title {
-  font-family: var(--code);
-  font-size: clamp(3.5rem, 10vw, 9rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-family: var(--crt);
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
   line-height: 0.9;
   margin-bottom: 3.5rem;
   color: var(--lime);
-  text-shadow: 0 0 40px rgba(206, 255, 28, 0.25);
+  text-shadow:
+    0 0 10px rgba(206, 255, 28, 0.8),
+    0 0 30px rgba(206, 255, 28, 0.4),
+    2px 2px 0 rgba(0, 255, 255, 0.15),
+    -2px -2px 0 rgba(255, 0, 60, 0.15);
 }
 
 /* ─── Bio ────────────────────────────────────────────────── */
@@ -567,7 +572,7 @@ footer {
   }
 
   .section-title {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: clamp(3.5rem, 18vw, 6rem);
     margin-bottom: 2.5rem;
   }
 
